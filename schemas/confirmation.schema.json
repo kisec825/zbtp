@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zbtp.org/schemas/confirmation.schema.json",
+  "title": "ZBTP Confirmation",
+  "description": "A peer acknowledgement confirming or disputing a contribution.",
+  "type": "object",
+  "properties": {
+    "contributionHash": {"$ref": "./common.schema.json#/definitions/hex32","description":"SHA-256 hex of the contribution being confirmed or disputed."},
+    "contribution_hash": {"$ref": "./common.schema.json#/definitions/hex32"},
+    "confirmer": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "confirmer_key": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "decision": {"type":"string","enum":["confirm","dispute","neutral"],"description":"Whether the confirmer confirms, disputes, or is neutral about the contribution."},
+    "type": {"type":"string"},
+    "createdAt": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "created_at": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "message": {"type":"string","description":"Optional short message or rationale."},
+    "metadata": {"type":"object","additionalProperties": true},
+    "hash": {"$ref": "./common.schema.json#/definitions/hex32","description":"SHA-256 hex of canonical confirmation JSON (excluding 'hash')."},
+    "signature": {
+      "anyOf": [
+        {"$ref": "./common.schema.json#/definitions/signature"},
+        {"$ref": "./common.schema.json#/definitions/signatureHex"}
+      ]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zbtp.org/schemas/common.schema.json",
+  "title": "ZBTP Common Definitions",
+  "description": "Reusable definitions for ZBTP JSON objects (public keys, signatures, timestamps, hashes).",
+  "type": "object",
+  "definitions": {
+    "hex32": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$",
+      "description": "32-byte value encoded as lowercase/uppercase hex (64 chars). Typically SHA-256 digest hex." 
+    },
+    "hex64": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{128}$",
+      "description": "64-byte value encoded as hex (128 chars). Typically Ed25519 signature hex." 
+    },
+    "publicKey": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{64}$",
+      "description": "Ed25519 public key encoded as hex (32 bytes = 64 hex chars). Implementations MAY also accept alternative encodings but canonical proofs use hex." 
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "RFC3339 / ISO-8601 timestamp in UTC."
+    },
+    "signature": {
+      "type": "object",
+      "required": ["sig","publicKey"],
+      "properties": {
+        "sig": {"$ref": "#/definitions/hex64"},
+        "publicKey": {"$ref": "#/definitions/publicKey"},
+        "algorithm": {"type":"string","const":"ed25519"}
+      },
+      "additionalProperties": false,
+      "description": "A detached signature object containing an Ed25519 signature and the signer's public key."
+    }
+    ,
+    "signatureHex": {
+      "type": "string",
+      "$ref": "#/definitions/hex64",
+      "description": "Compact signature representation as a hex string (128 hex chars)." 
+    }
+  }
+}

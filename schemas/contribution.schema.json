@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zbtp.org/schemas/contribution.schema.json",
+  "title": "ZBTP Contribution",
+  "description": "A signed statement describing an action or contribution inside a project.",
+  "type": "object",
+  "properties": {
+    "projectHash": {"$ref": "./common.schema.json#/definitions/hex32","description":"SHA-256 hex of the canonical project object this contribution targets."},
+    "project_id": {"$ref": "./common.schema.json#/definitions/hex32"},
+    "author": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "contributor_key": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "createdAt": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "created_at": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "type": {"type":"string","description":"Contribution type (e.g., 'code', 'doc', 'design')."},
+    "role": {"type":"string"},
+    "description": {"type":"string","description":"Human-readable description of the contribution."},
+    "description_text": {"type":"string"},
+    "description_hash": {"$ref": "./common.schema.json#/definitions/hex32"},
+    "metadata": {"type":"object","description":"Optional structured metadata (files, diffs, references).","additionalProperties": true},
+    "hash": {"$ref": "./common.schema.json#/definitions/hex32","description":"SHA-256 hex of canonical contribution JSON (excluding 'hash')."},
+    "signature": {
+      "anyOf": [
+        {"$ref": "./common.schema.json#/definitions/signature"},
+        {"$ref": "./common.schema.json#/definitions/signatureHex"}
+      ]
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zbtp.org/schemas/proof.schema.json",
+  "title": "ZBTP Proof Export",
+  "description": "A bundled export containing identities, projects, contributions and confirmations which together form a locally-verifiable proof file.",
+  "type": "object",
+  "properties": {
+    "exportVersion": {"type":"string","description":"Export format version, e.g. 'zbtp-v0.1'"},
+    "createdAt": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "created_at": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "identities": {"type":"array","items":{"$ref":"./identity.schema.json"}},
+    "projects": {"type":"array","items":{"$ref":"./project.schema.json"}},
+    "contributions": {"type":"array","items":{"$ref":"./contribution.schema.json"}},
+    "confirmations": {"type":"array","items":{"$ref":"./confirmation.schema.json"}},
+    "exporterPublicKey": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "metadata": {"type":"object","additionalProperties": true},
+    "proofHash": {"$ref": "./common.schema.json#/definitions/hex32","description":"SHA-256 hex of canonical export JSON (excluding 'proofHash')."},
+    "signature": {
+      "anyOf": [
+        {"$ref": "./common.schema.json#/definitions/signature"},
+        {"$ref": "./common.schema.json#/definitions/signatureHex"}
+      ]
+    }
+  },
+  "additionalProperties": true
+}

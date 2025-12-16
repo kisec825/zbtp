@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zbtp.org/schemas/zbtp.schema.json",
+  "title": "ZBTP Schema Registry",
+  "description": "Top-level registry referencing all ZBTP object schemas for easy validation and tooling.",
+  "type": "object",
+  "properties": {
+    "identity": {"$ref": "./identity.schema.json"},
+    "project": {"$ref": "./project.schema.json"},
+    "contribution": {"$ref": "./contribution.schema.json"},
+    "confirmation": {"$ref": "./confirmation.schema.json"},
+    "proof": {"$ref": "./proof.schema.json"}
+  },
+  "additionalProperties": true
+}

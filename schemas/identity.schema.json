@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://zbtp.org/schemas/identity.schema.json",
+  "title": "ZBTP Identity",
+  "description": "A pseudonymous identity anchored by an Ed25519 public key. Identities are JSON objects that may be signed by the key they advertise.",
+  "type": "object",
+  "oneOf": [
+    {"required":["publicKey"]},
+    {"required":["public_key_hex"]}
+  ],
+  "properties": {
+    "publicKey": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "public_key_hex": {"$ref": "./common.schema.json#/definitions/publicKey"},
+    "alias": {"type":"string","description":"Optional human-friendly name for this identity (not authoritative)."},
+    "createdAt": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "created_at": {"$ref": "./common.schema.json#/definitions/timestamp"},
+    "key_version": {"type":"integer"},
+    "metadata": {"type":"object","description":"Optional application metadata.","additionalProperties": true},
+    "hash": {"$ref": "./common.schema.json#/definitions/hex32","description":"SHA-256 hex of the canonical serialized identity object (excluding the 'hash' field)."},
+    "signature": {
+      "anyOf": [
+        {"$ref": "./common.schema.json#/definitions/signature"},
+        {"$ref": "./common.schema.json#/definitions/signatureHex"}
+      ],
+      "description": "Signature may be an object (detached) or a hex string in examples."
+    }
+  },
+  "additionalProperties": true
+}

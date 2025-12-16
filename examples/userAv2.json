@@ -1,0 +1,7 @@
+{
+  "type": "zbtp.revoke",
+  "revoked_public_key": "828c0b23e115589cd5708e9bf1578a37c231152225cf5aa35e3ea3bffc721924",
+  "revoked_at": "2025-12-16T06:45:52.830707Z",
+  "reason": "Key compromised during travel.",
+  "signature": "0ea5903acda65c75ff84d9a2bd0f096ea7c95587d4630cd4fe3ea00b834d58322727f76625edd5c45e40c96cb083ee7fbc7c143cbf7ad536235758f9cf773902"
+}
