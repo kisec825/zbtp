@@ -226,9 +226,12 @@ Feedback, review, and independent implementations are strongly encouraged.
 
 ## License
 
-The ZBTP specification is released under an open license to allow free implementation on any platform and in any language.
+### Specification
+The ZBTP protocol specification, schemas, and documentation are released under
+the Creative Commons CC0 1.0 license.
 
-(Exact license to be defined.)
+### Reference Implementation
+The zbtp-cli reference implementation is licensed under the Apache License 2.0.
 
 ---
 

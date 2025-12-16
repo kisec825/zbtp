@@ -1,8 +1,0 @@
-{
-  "type": "confirmation",
-  "project_id": "ff94e89d9fb7b6e8f293cbb2eb50a9dc5b5a088abc75b6ba352e7d0ea809ca1c",
-  "contribution_hash": "eddcfcc802385a453ce69e8efdcb157fe3bf7c000b2c3806dca9979229836e87",
-  "confirmer_key": "989a0a805578bffd03e0bebd0f022355e71b2084717d2c7143d377313c69fbf6",
-  "created_at": "2025-12-16T06:42:54.790473Z",
-  "signature": "8aa8c168185370c4afe65c7f930de8a44d87e3067c34d3e650e9f1fcb183ec9fd898721d697ef89c3ebaded158e7b5c62cc13f3bb2ab25577c4506513d45de07"
-}
